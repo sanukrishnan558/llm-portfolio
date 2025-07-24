@@ -1,10 +1,10 @@
 # llm-portfolio
 My LLM and Generative AI Projects for SEQATO
-# 💡 SEQATO LLM Portfolio
+# SEQATO LLM Portfolio
 
 This repository contains my hands-on projects as part of the SEQATO LLM Awareness and Portfolio Development Program.
 
-## 📚 Project Phases
+## Project Phases
 
 ### Phase 1 – Mini Projects
 - [Local LLM Chat App](Phase1_MiniProjects/LocalLLMChatApp/)
@@ -19,5 +19,5 @@ This repository contains my hands-on projects as part of the SEQATO LLM Awarenes
 - [RAG Chatbot](Phase3_PortfolioProject/RAGChatbot/)
 - [LangGraph Multi-Agent System](Phase3_PortfolioProject/LangGraph_MultiAgent/)
 
-## 📝 Learning Log
+## Learning Log
 - [View Progress](logs/learning_log.md)
