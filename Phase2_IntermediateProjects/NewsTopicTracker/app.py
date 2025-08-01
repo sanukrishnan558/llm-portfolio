@@ -1,20 +1,33 @@
-# app.py
 import streamlit as st
-from news_scraper import fetch_trending_news
-from article_parser import extract_article_content
+from news_scraper import get_top_news
 from summarizer import summarize_text
+import requests
+from bs4 import BeautifulSoup
 
-st.set_page_config("📰 News Topic Tracker")
-
+st.set_page_config(page_title="📰 News Topic Tracker", layout="centered")
 st.title("📰 News Topic Tracker")
 
-news_items = fetch_trending_news()
+st.markdown("Get top news from India and a quick summary using local ML.")
 
-for i, (title, link) in enumerate(news_items):
-    with st.expander(f"{i+1}. {title}"):
-        if st.button("Summarize", key=f"summarize_{i}"):
-            with st.spinner("Fetching and summarizing..."):
-                content = extract_article_content(link)
-                summary = summarize_text(content)
-                st.markdown(f"**Summary:**\n{summary}")
-        st.markdown(f"[Read Full Article]({link})", unsafe_allow_html=True)
+# Model selection
+method = st.radio("Choose summarization method:", ["Hugging Face", "Ollama (Llama3)"])
+
+if st.button("Fetch & Summarize News"):
+    with st.spinner("Getting latest headlines..."):
+        headlines = get_top_news()
+
+        for idx, article in enumerate(headlines, start=1):
+            st.subheader(f"{idx}. {article['title']}")
+            st.markdown(f"[Read full article]({article['url']})")
+
+            try:
+                article_html = requests.get(article["url"], timeout=5).text
+                soup = BeautifulSoup(article_html, "html.parser")
+                paras = soup.find_all("p")
+                text = " ".join([p.text for p in paras][:10])
+                summary = summarize_text(text, "ollama" if method == "Ollama (Llama3)" else "huggingface")
+            except Exception as e:
+                summary = f"❌ Could not summarize article: {e}"
+
+            st.markdown("**Summary:**")
+            st.info(summary)
