@@ -12,6 +12,12 @@ st.markdown("Get top news from India and a quick summary using local ML.")
 # Model selection
 method = st.radio("Choose summarization method:", ["Hugging Face", "Ollama (Llama3)"])
 
+# Display active model
+if method == "Hugging Face":
+    st.success("✅ Using Hugging Face Summarizer")
+else:
+    st.info("🤖 Using Ollama (Llama3) Summarizer")
+
 if st.button("Fetch & Summarize News"):
     with st.spinner("Getting latest headlines..."):
         headlines = get_top_news()
