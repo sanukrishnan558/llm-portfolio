@@ -1,39 +1,21 @@
 # 📰 News Topic Tracker
 
-A **Streamlit** app to fetch top news headlines by category from the **GNews API** and summarize them using **Hugging Face Transformers** or **Ollama (LLaMA3)**.
-
----
-
-## 🚀 Features
-- **Choose news category** (e.g., World, Business, Technology, Sports, etc.)
-- **Fetch top headlines** from GNews API
-- **Summarize** each article using:
-  - Hugging Face Transformers (local or API)
-  - Ollama (LLaMA3 model)
-- Direct **links to full articles**
-- Lightweight, **interactive UI** via Streamlit
+A simple and interactive **Streamlit** application to fetch and summarize the latest news from India by category.  
+You can choose between **Hugging Face** or **Ollama (Llama3)** for summarization.
 
 ---
 
 ## 📂 Project Structure
 
+```
 NewsTopicTracker/
 │
-├── app.py # Main Streamlit app
-├── news_scraper.py # News fetching logic (GNews API / RSS)
-├── summarizer.py # Summarization logic
-├── requirements.txt # Python dependencies
-└── README.md # Project documentation
-
----
-
-## 🛠️ Installation
-
-1. **Clone the repository**
-git clone https://github.com/yourusername/NewsTopicTracker.git
-cd NewsTopicTracker
-Create virtual environment
-
+├── app.py               # Main Streamlit app
+├── news_scraper.py      # News fetching logic (GNews API / RSS)
+├── summarizer.py        # Summarization logic
+├── requirements.txt     # Python dependencies
+└── README.md            # Project documentation
+```
 
 ---
 
@@ -66,30 +48,73 @@ Create virtual environment
    ```bash
    git clone https://github.com/yourusername/NewsTopicTracker.git
    cd NewsTopicTracker
+   ```
+
+2. **Create and activate a virtual environment** (recommended)
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # Linux/Mac
+   venv\Scripts\activate     # Windows
+   ```
+
+3. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Set up environment variables**  
+   Create a `.env` file in the root directory with:
+   ```env
+   GNEWS_API_KEY=your_gnews_api_key_here
+   ```
+
+5. **Run the app**
+   ```bash
+   streamlit run app.py
+   ```
+
+---
+
+## ⚙️ Configuration
+
+You can adjust:
+- **News sources & categories** → in `news_scraper.py`
+- **Summarization model** → in `summarizer.py`
+- **Default summarization method** → in `app.py`
+
+---
+
+## 📷 Screenshots
+
+<img width="1919" height="894" alt="image" src="https://github.com/user-attachments/assets/55af4004-ab97-4bbe-b71c-f8108510b0f5" />
 
 
-▶️ Usage
-Run the app:
+---
 
-streamlit run app.py
-Open the link in your browser (usually http://localhost:8501).
+## 🛠 Technologies Used
 
-📜 Example Output
-less
-Copy
-Edit
-1. Engineered Syn57 Bacteria Redefine the Genetic Code
-[Read full article](https://www.biotecnika.org/...)
+- [Python](https://www.python.org/)
+- [Streamlit](https://streamlit.io/)
+- [Hugging Face Transformers](https://huggingface.co/)
+- [GNews API](https://gnews.io/)
+- [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/)
 
-Summary:
-Scientists have engineered a new strain of E. coli, Syn57, with only 57 codons...
-🔧 Tech Stack
-Python 3.9+
+---
 
-Streamlit – Interactive UI
+## 📌 Future Improvements
 
-GNews API – News data source
+- ✅ Support for more summarization models
+- ✅ Option to download summaries as PDF/CSV
+- ✅ Dark mode UI theme
 
-Hugging Face Transformers – Summarization
+---
 
-Ollama – Local LLaMA3 inference
+## 🤝 Contributing
+
+Pull requests are welcome! Please fork the repo and submit a PR for any improvements.
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
