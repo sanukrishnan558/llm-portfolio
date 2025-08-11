@@ -5,18 +5,13 @@ import subprocess
 hf_summarizer = pipeline("summarization", model="sshleifer/distilbart-cnn-12-6")
 
 def summarize_with_huggingface(text):
-    if not text or len(text.split()) < 15:  # Require at least 15 words
+    if not text or len(text.split()) < 15:
         return "⚠️ Not enough content to summarize."
 
     try:
-        # Limit text length to avoid token overflow
-        text = " ".join(text.split()[:500])  # First 500 words
+        text = " ".join(text.split()[:500])  # Trim to avoid token overflow
         summary = hf_summarizer(text, max_length=60, min_length=20, do_sample=False)
-
-        if summary and len(summary) > 0:
-            return summary[0]["summary_text"]
-        else:
-            return "⚠️ No summary generated."
+        return summary[0]["summary_text"] if summary else "⚠️ No summary generated."
     except Exception as e:
         return f"❌ Hugging Face error: {e}"
 
