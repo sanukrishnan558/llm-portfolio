@@ -99,22 +99,5 @@ You can adjust:
 - [GNews API](https://gnews.io/)
 - [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/)
 
----
 
-## 📌 Future Improvements
 
-- ✅ Support for more summarization models
-- ✅ Option to download summaries as PDF/CSV
-- ✅ Dark mode UI theme
-
----
-
-## 🤝 Contributing
-
-Pull requests are welcome! Please fork the repo and submit a PR for any improvements.
-
----
-
-## 📜 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
