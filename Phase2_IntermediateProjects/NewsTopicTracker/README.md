@@ -16,16 +16,14 @@ A **Streamlit** app to fetch top news headlines by category from the **GNews API
 ---
 
 ## 📂 Project Structure
+
 NewsTopicTracker/
-├── app.py # Streamlit app entry point
-├── news_scraper.py # Fetches news from GNews API
+│
+├── app.py # Main Streamlit app
+├── news_scraper.py # News fetching logic (GNews API / RSS)
 ├── summarizer.py # Summarization logic
 ├── requirements.txt # Python dependencies
 └── README.md # Project documentation
-
-yaml
-Copy
-Edit
 
 ---
 
@@ -36,33 +34,43 @@ git clone https://github.com/yourusername/NewsTopicTracker.git
 cd NewsTopicTracker
 Create virtual environment
 
-bash
-Copy
-Edit
-python -m venv venv
-source venv/bin/activate      # Mac/Linux
-venv\Scripts\activate         # Windows
-Install dependencies
 
-bash
-Copy
-Edit
-pip install -r requirements.txt
-Set up environment variables
-Create a .env file in the root directory:
+---
 
-env
-Copy
-Edit
-GNEWS_API_KEY=your_gnews_api_key
-Get your API key from: https://gnews.io
+## ✨ Features
+
+- 🔍 **Select news category** from a dropdown (e.g., Business, Sports, Entertainment, etc.)
+- 🤖 **Choose summarization method**:
+  - Hugging Face Transformers
+  - Ollama (Llama3)
+- 📑 **Automatic news content extraction**
+- 📜 **Short summaries** for each news article
+- 🌐 **Clickable links** to read the full article
+
+---
+
+## 📋 Requirements
+
+- Python **3.9+**
+- Hugging Face Transformers
+- Requests
+- BeautifulSoup4
+- Streamlit
+- (Optional) Ollama installed locally
+
+---
+
+## 🚀 Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/NewsTopicTracker.git
+   cd NewsTopicTracker
+
 
 ▶️ Usage
 Run the app:
 
-bash
-Copy
-Edit
 streamlit run app.py
 Open the link in your browser (usually http://localhost:8501).
 
