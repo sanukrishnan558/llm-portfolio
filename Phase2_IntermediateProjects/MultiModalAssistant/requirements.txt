@@ -1,0 +1,9 @@
+streamlit
+transformers                 # for BLIP captioning
+torch                       # PyTorch backend
+sentence-transformers       # embeddings
+faiss-cpu                   # vector store (faiss-cpu)  -- on Windows pip may need wheels
+Pillow
+pytesseract                 # optional OCR (install Tesseract separately)
+openai                      # optional (if using OpenAI)
+python-dotenv               # optional, for env
