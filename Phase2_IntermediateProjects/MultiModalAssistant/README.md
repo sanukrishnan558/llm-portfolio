@@ -1,99 +1,92 @@
-# 🎯 Multimodal Assistant
+# 🧠 Multimodal Assistant
 
-An interactive AI assistant built with **Streamlit** that can understand text, images, and documents. It uses **Ollama**, **OpenAI**, or **Gemini** models for multimodal reasoning — allowing you to chat about uploaded images or documents.
+The **Multimodal Assistant** is an AI-powered web application built with **Streamlit**, combining **text and image understanding**.  
+It uses **Ollama’s LLaMA 3** model for natural language reasoning, along with **OCR and image captioning** for visual comprehension, and **FAISS** for context retrieval.
 
 ---
 
 ## 🚀 Features
 
-✅ **Multimodal Inputs** — Chat with text, images, and documents  
-✅ **Model Flexibility** — Supports Ollama, OpenAI, or Gemini  
-✅ **Streaming Responses** — Token-by-token response rendering for real-time feel  
-✅ **Collapsible Settings Panel** — Cleaner UI design  
-✅ **Image & Document Preview** — Uploaded files preview instantly  
-✅ **Debug Mode** — Optional expander for seeing backend JSON & metadata
+- 🖼️ **Image Understanding** – Upload an image and extract captions + OCR text.  
+- 💬 **Question Answering** – Ask questions related to the image or text context.  
+- 🔎 **Document Retrieval** – Retrieves related documents using FAISS for grounded answers.  
+- ⚡ **Streaming Responses** – LLM answers stream token-by-token for a real-time chat experience.  
+- 🧩 **Clean UI** – Two-column layout with collapsible settings and document previews.
 
 ---
 
-## 🧩 Project Structure
+## 🧱 Project Structure
 
 ```
 multimodal-assistant/
-│
-├── app.py                 # Main Streamlit application
-├── requirements.txt       # Python dependencies
-├── README.md              # Project documentation
-└── assets/                # Optional folder for icons, images, etc.
+├── app.py               # Streamlit web app
+├── llm_client.py        # LLM client using Ollama API
+├── image_utils.py       # Image captioning & OCR logic
+├── retriever.py         # FAISS retriever logic
+├── requirements.txt     # Python dependencies
+└── README.md            # Project documentation
 ```
 
 ---
 
-## ⚙️ Installation
+## 🧰 Requirements
 
-### 1️⃣ Clone this repository
-```bash
-git clone https://github.com/yourusername/multimodal-assistant.git
-cd multimodal-assistant
-```
+- Python 3.10+
+- Ollama (with `llama3` model pulled)
+- Streamlit
+- Pillow
+- FAISS
+- pytesseract (for OCR)
 
-### 2️⃣ Create and activate virtual environment
-```bash
-python -m venv venv
-source venv/bin/activate   # On Windows: venv\Scripts\activate
-```
+Install all dependencies:
 
-### 3️⃣ Install dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
 ---
 
-## 🧠 Usage
+## ⚙️ Run the App
 
-### Run the app locally
-```bash
-streamlit run app.py
-```
+1. Start your Ollama server:
+   ```bash
+   ollama serve
+   ```
 
-Then open the app in your browser — it’ll usually be available at:  
-👉 **http://localhost:8501**
+2. Run the Streamlit app:
+   ```bash
+   streamlit run app.py
+   ```
 
----
-
-## ⚙️ Environment Variables
-
-You can set API keys in a `.env` file or Streamlit secrets.
-
-```bash
-OPENAI_API_KEY=your_openai_key_here
-GOOGLE_API_KEY=your_gemini_key_here
-```
+Then open your browser at **http://localhost:8501** 🎉
 
 ---
 
-## 🧠 Example Interaction
+## 🧠 How It Works
 
-**User:** *“What’s happening in this image?”*  
-**Assistant:** *(Analyzes the uploaded image and responds with description or reasoning.)*
-
----
-
-## 🧩 Technologies Used
-
-- **Python 3.9+**
-- **Streamlit** — Frontend UI
-- **OpenAI / Gemini / Ollama** — Model integration
-- **Pillow / PyPDF2** — For handling images and PDFs
+1. Upload an image → the app runs captioning + OCR.
+2. Ask a question → it retrieves relevant text context from FAISS.
+3. The **LLaMA 3** model combines image + text context to generate an intelligent answer.
+4. The response is streamed token-by-token for smooth interactivity.
 
 ---
 
-## 🌟 Credits
+## 📦 Example Use Cases
 
-Built by **Sanu Krishnan** as part of a personal AI project portfolio.
+- Visual question answering  
+- Knowledge-based assistants using documents  
+- Multimodal content summarization  
+- AI research or LLM demo showcase  
 
 ---
 
-## 📜 License
+## 🧑‍💻 Author
 
-MIT License © 2025 Sanu Krishnan
+Developed by **Sanu Krishnan**  
+Part of the **LLM Portfolio Project Series — SEQATO**
+
+---
+
+## 🪪 License
+
+MIT License © 2025
